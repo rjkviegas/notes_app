@@ -1,6 +1,6 @@
 (function(exports) {
 
-  function testNoteListIsArray() {
+  function testNoteListNotesIsAnArray() {
     var notelist = new NoteList();
 
     assert.isTrue(Array.isArray(notelist.notes));
@@ -14,6 +14,14 @@
     assert.isTrue(notelist.notes[0].text === 'argument');
   }
 
-  testNoteListIsArray();
+  function testListNotesReturnsNotesArray() {
+    var notelist = new NoteList(Note);
+    notelist.createNote('argument');
+
+    assert.isTrue(Array.isArray(notelist.listNotes()));
+  }
+
+  testNoteListNotesIsAnArray();
   testStoresCreatedNotes();
+  testListNotesReturnsNotesArray();
 })(this);
