@@ -7,7 +7,7 @@
   }
 
   function testStoresCreatedNotes() {
-    var notelist = new NoteList();
+    var notelist = new NoteList(Note);
     notelist.createNote('argument');
 
     assert.isTrue(notelist.notes[0] instanceof Note);
