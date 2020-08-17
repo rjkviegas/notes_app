@@ -1,6 +1,6 @@
 var NoteList = function() {
   this.notes = []
 };
-NoteList.prototype.createNote = function() {
-  return new Note();
+NoteList.prototype.createNote = function(text) {
+  return new Note(text);
 };
