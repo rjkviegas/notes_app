@@ -5,13 +5,15 @@
 
     assert.isTrue(Array.isArray(notelist.notes));
   }
-  function testNoteListCreatesSingleNote() {
-    var notelist = new NoteList();
 
-    assert.isTrue(notelist.createNote() instanceof Note)
-    assert.isTrue(notelist.createNote('argument').text === 'argument')
+  function testStoresCreatedNotes() {
+    var notelist = new NoteList();
+    notelist.createNote('argument');
+
+    assert.isTrue(notelist.notes[0] instanceof Note);
+    assert.isTrue(notelist.notes[0].text === 'argument');
   }
 
   testNoteListIsArray();
-  testNoteListCreatesSingleNote();
+  testStoresCreatedNotes();
 })(this);
