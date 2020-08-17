@@ -1,11 +1,12 @@
 (function(exports) {
-  function testNoteIsDefined() {
-    if (Note === undefined) {
-      throw new Error('Note is not defined');
-    }
+  
+  function testNoteTextReturnsAString() {
+    var note = new Note(3);
+
+    assert.isTrue(typeof(note.text) === 'string');
   }
 
-  testNoteIsDefined();
+  testNoteTextReturnsAString();
   // function testNoteTextReturnsString() {
   //   var note = new Note();
 
