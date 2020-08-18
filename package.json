@@ -1,0 +1,26 @@
+{
+  "name": "notes_app",
+  "version": "1.0.0",
+  "description": "Writing a frontend, single page app using only pure JavaScript.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "open SpecRunner.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjkviegas/notes_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjkviegas/notes_app/issues"
+  },
+  "homepage": "https://github.com/rjkviegas/notes_app#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
