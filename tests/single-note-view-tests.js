@@ -1,14 +1,12 @@
 (function(exports) {
   
-  function assertSingleNoteViewIsAConstructor() {
+  function testSingleNoteViewIsAConstructor() {
     var singleNoteView = new SingleNoteView();
 
     assert.isTrue(singleNoteView instanceof SingleNoteView)
   }
 
-  assertSingleNoteViewIsAConstructor();
-
-  function assertSingleNoteViewReturnHTML() {
+  function testSingleNoteViewReturnHTML() {
     var noteDouble = {};
     noteDouble.getText = function() {
       return 'Favourite drink: seltzer';
@@ -18,6 +16,6 @@
     assert.isTrue(singleNoteView.returnHTML() === '<div>Favourite drink: seltzer</div>');
   }
 
-  assertSingleNoteViewIsAConstructor();
-  assertSingleNoteViewReturnHTML();
+  testSingleNoteViewIsAConstructor();
+  testSingleNoteViewReturnHTML();
 })(this);

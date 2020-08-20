@@ -1,5 +1,5 @@
 (function(exports) {
-  function assertNoteControllerIsAConstructor() {
+  function testNoteControllerIsAConstructor() {
     var noteListDouble; 
     var NoteListViewClass = function(notelist) {
       this.notelist = notelist;
@@ -9,7 +9,7 @@
     assert.isTrue(noteController instanceof NoteController);
   }
 
-  function assertInnerHTMLOfAppEqualsNoteText() {
+  function testInnerHTMLOfAppEqualsNoteText() {
     var noteListDouble;
     var NoteListViewClass = function() {}
     NoteListViewClass.prototype.noteListHTML = function() {
@@ -21,6 +21,6 @@
     assert.isTrue(document.getElementById("app").innerHTML === '<ul><li><div>Favourite food: pesto</div></li></ul>')
   }
   
-  assertNoteControllerIsAConstructor();
-  assertInnerHTMLOfAppEqualsNoteText();
+  testNoteControllerIsAConstructor();
+  testInnerHTMLOfAppEqualsNoteText();
 })(this);
