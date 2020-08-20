@@ -43,6 +43,7 @@
   function testNoteListViewNoteListHTMLReturns20CharsMaxPerNote() {
     var noteDouble = {};
     noteDouble.getText = function() {
+      // string length is 21
       return 'Favourite food: pesto';
     }
     var notelist = {};
@@ -51,7 +52,7 @@
     }
     var notelistview = new NoteListView(notelist);
     // 49 because the tags at the start and end total 29 characters
-    assert.isTrue(notelistview.noteListHTML().length == 49);
+    assert.isTrue(notelistview.noteListHTML().length === 49);
   }
 
   testNoteListViewNoteListHTMLReturnsNoteListWith0Notes()

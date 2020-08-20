@@ -19,6 +19,14 @@
     assert.isTrue(Array.isArray(notelist.listNotes()));
   }
 
+  function testCreatedNotesHaveAnIDProperty() {
+    var notelist = new NoteList(Note);
+    notelist.createNote('argument');
+
+    assert.isTrue(notelist.listNotes()[0].id === 0);
+  }
+
   testStoresCreatedNotes();
   testListNotesReturnsNotesArray();
+  testCreatedNotesHaveAnIDProperty();
 })(this);
