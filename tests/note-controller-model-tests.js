@@ -13,12 +13,14 @@
     var noteListDouble;
     var NoteListViewClass = function() {}
     NoteListViewClass.prototype.noteListHTML = function() {
-      return '<ul><li><div>Favourite food: pest</div></li></ul>';
+      return '<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li></ul>';
     }
     var noteController = new NoteController(noteListDouble, NoteListViewClass);
     noteController.changeApp();
     
-    assert.isTrue(document.getElementById("app").innerHTML === '<ul><li><div>Favourite food: pest</div></li></ul>')
+    assert.isTrue(document.getElementById("app").innerHTML === 
+    '<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li></ul>'
+    );
   }
   
   testNoteControllerIsAConstructor();

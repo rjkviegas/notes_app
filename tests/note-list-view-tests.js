@@ -7,10 +7,10 @@
     }
     var notelistview = new NoteListView(notelist);
 
-    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div></div></li></ul>');
+    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div></a></div></li></ul>');
   }
   function testNoteListViewNoteListHTMLReturnsNoteListWith1Note() {
-    var noteDouble = {};
+    var noteDouble = { id : 0 };
     noteDouble.getText = function() {
       return 'Favourite food: pesto';
     }
@@ -20,11 +20,13 @@
     }
     var notelistview = new NoteListView(notelist);
 
-    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div>Favourite food: pest</div></li></ul>');
+    assert.isTrue(notelistview.noteListHTML() === 
+    '<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li></ul>'
+    );
   }
   
   function testNoteListViewNoteListHTMLReturnsNoteListWith2Notes() {
-    var noteDouble = {}, anotherNoteDouble = {};
+    var noteDouble = { id : 0 }, anotherNoteDouble = { id : 1 };
     noteDouble.getText = function() {
       return 'Favourite food: pesto';
     }
@@ -37,11 +39,14 @@
     }
     var notelistview = new NoteListView(notelist);
 
-    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div>Favourite food: pest</div></li><li><div>Favourite drink: sel</div></li></ul>');
+    assert.isTrue(notelistview.noteListHTML() === 
+    '<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li>' + 
+    '<li><div><a href="#notes/1">Favourite drink: sel</a></div></li></ul>'
+    );
   }
 
   function testNoteListViewNoteListHTMLReturns20CharsMaxPerNote() {
-    var noteDouble = {};
+    var noteDouble = { id : 0 };
     noteDouble.getText = function() {
       // string length is 21
       return 'Favourite food: pesto';
@@ -51,12 +56,29 @@
       return [noteDouble];
     }
     var notelistview = new NoteListView(notelist);
-    // 49 because the tags at the start and end total 29 characters
-    assert.isTrue(notelistview.noteListHTML().length === 49);
+    // 72 because the tags at the start and end total 52 characters
+    assert.isTrue(notelistview.noteListHTML().length === 72);
+  }
+
+  function testEachNoteIsLinkedToItsAppropriateURL() {
+    var noteDouble = { id : 0 };
+    noteDouble.getText = function() {
+      return 'Favourite food: pesto';
+    }
+    var notelist = {};
+    notelist.listNotes = function() {
+      return [noteDouble];
+    }
+    var notelistview = new NoteListView(notelist);
+    
+    assert.isTrue(notelistview.noteListHTML() === 
+    `<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li></ul>`
+    );
   }
 
   testNoteListViewNoteListHTMLReturnsNoteListWith0Notes()
   testNoteListViewNoteListHTMLReturnsNoteListWith1Note();
   testNoteListViewNoteListHTMLReturnsNoteListWith2Notes()
   testNoteListViewNoteListHTMLReturns20CharsMaxPerNote();
+  testEachNoteIsLinkedToItsAppropriateURL();
 })(this);
