@@ -10,22 +10,8 @@
   }
 
   function assertInnerHTMLOfAppEqualsNoteText() {
-    var NoteDouble = function(text) {
-      this.text = text;
-    }
-    NoteDouble.prototype.getText = function() {
-      return this.text
-    }
-    var NoteListDouble = function(noteClass) {
-      this.noteClass = noteClass;
-    }
-    var noteListDouble = new NoteListDouble(NoteDouble)
-    noteListDouble.listNotes = function() {
-      return [(new NoteDouble('Favourite food: pesto'))];
-    }
-    var NoteListViewClass = function(notelist) {
-      this.notelist = notelist;
-    }
+    var noteListDouble;
+    var NoteListViewClass = function(notelist) {}
     NoteListViewClass.prototype.noteListHTML = function() {
       return '<ul><li><div>Favourite food: pesto</div></li></ul>';
     }
