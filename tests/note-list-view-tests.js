@@ -7,7 +7,7 @@
     }
     var notelistview = new NoteListView(notelist);
 
-    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div></a></div></li></ul>');
+    assert.isTrue(notelistview.noteListHTML() === '<ul><li><div></div></li></ul>');
   }
   function testNoteListViewNoteListHTMLReturnsNoteListWith1Note() {
     var noteDouble = { id : 0 };

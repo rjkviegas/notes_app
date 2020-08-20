@@ -7,12 +7,11 @@
   }
 
   function testSingleNoteViewReturnHTML() {
-    var noteDouble = {};
+    var noteDouble = {}
     noteDouble.getText = function() {
       return 'Favourite drink: seltzer';
     }
     var singleNoteView = new SingleNoteView(noteDouble);
-    
     assert.isTrue(singleNoteView.returnHTML() === '<div>Favourite drink: seltzer</div>');
   }
 
