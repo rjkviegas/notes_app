@@ -11,7 +11,7 @@
 
   function assertInnerHTMLOfAppEqualsNoteText() {
     var noteListDouble;
-    var NoteListViewClass = function(notelist) {}
+    var NoteListViewClass = function() {}
     NoteListViewClass.prototype.noteListHTML = function() {
       return '<ul><li><div>Favourite food: pesto</div></li></ul>';
     }
