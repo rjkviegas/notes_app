@@ -24,19 +24,28 @@
   }
 
   function testLoadContentForASingleNote() {
-    var noteListDouble;
-    var NoteListViewClass = function() {}
+    var noteDouble = {};
+    noteDouble.getText = function() {
+      return 'Favourite food: pesto';
+    }
+    var noteListDouble = {};
+    noteListDouble.listNotes = function() {
+      return [noteDouble];
+    }
+    var NoteListViewClass = function(notelist) {
+      this.notelist = notelist;
+    }
     NoteListViewClass.prototype.noteListHTML = function() {
       return '<ul><li><div><a href="#notes/0">Favourite food: pest</a></div></li></ul>';
     }
-    var noteController = new NoteController(noteListDouble, NoteListViewClass);
+    var noteController = new NoteController(noteListDouble, NoteListViewClass, SingleNoteView);
     noteController.changeApp();
     noteController.hashChangedListener();
 
     window.location.hash = '#notes/0';
     const hashchange = new Event('hashchange')
     window.dispatchEvent(hashchange);
-    
+
     console.log(document.getElementById("single-note-display").innerHTML);
     assert.isTrue(document.getElementById("single-note-display").innerHTML === "<div>Favourite food: pesto</div>");
   }
