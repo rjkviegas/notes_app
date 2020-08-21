@@ -46,7 +46,6 @@
     const hashchange = new Event('hashchange')
     window.dispatchEvent(hashchange);
 
-    console.log(document.getElementById("single-note-display").innerHTML);
     assert.isTrue(document.getElementById("single-note-display").innerHTML === "<div>Favourite food: pesto</div>");
   }
   

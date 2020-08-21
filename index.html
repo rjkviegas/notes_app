@@ -15,8 +15,13 @@
     
   </head>
   <body>
-    <div id="single-note-display"></div>
+    <form action="#notes/" id="text" method="POST">
+      <h1>Note</h1>
+    <textarea name="note-text" form="text" rows="4" cols="50"></textarea>
+    <input type="submit" name="note-text"></form>
+
     <div id="app">hello</div>
+    <div id="single-note-display"></div>
     <!-- <script> changeWelcome("welcome intrepid explorer");</script> -->
     <script src="lib/note-controller-model.js"></script>
     <script src="tests/note-controller-model-tests.js"></script>
