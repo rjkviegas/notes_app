@@ -31,9 +31,14 @@
     }
     var noteController = new NoteController(noteListDouble, NoteListViewClass);
     noteController.changeApp();
-    document.getElementById('app').click();
+    noteController.hashChangedListener();
+
+    window.location.hash = '#notes/0';
+    const hashchange = new Event('hashchange')
+    window.dispatchEvent(hashchange);
     
-    assert.isTrue(document.getElementById("app").innerHTML === "<div>Favourite food: pesto</div>");
+    console.log(document.getElementById("single-note-display").innerHTML);
+    assert.isTrue(document.getElementById("single-note-display").innerHTML === "<div>Favourite food: pesto</div>");
   }
   
   testNoteControllerIsAConstructor();
